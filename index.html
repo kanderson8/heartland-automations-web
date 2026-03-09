@@ -489,6 +489,80 @@
       }
     }
 
+    /* ─── ABOUT ─── */
+    .about-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: #E5E7EB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .about-photo-placeholder {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0B1F51 0%, #1a3a7a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .about-content h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #0B1F51;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .about-content .about-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #C83803;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      color: #4B5563;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .about-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .about-photo-placeholder {
+        margin: 0 auto;
+      }
+    }
+
     /* ─── CTA BANNER ─── */
     .cta-banner {
       background: #0B1F51;
@@ -600,6 +674,7 @@
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="https://calendly.com/kyle-heartlandautomations/free-ai-operations-audit" class="btn btn-orange btn-sm" aria-label="Book a free audit">Book a Free Audit</a></li>
       </ul>
@@ -747,6 +822,23 @@
             <li>Quarterly executive business review</li>
           </ul>
           <a href="https://calendly.com/kyle-heartlandautomations/free-ai-operations-audit" class="btn btn-orange-outline btn-sm">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section bg-gray" id="about">
+    <div class="section-inner">
+      <div class="about-inner">
+        <div class="about-photo-placeholder">KA</div>
+        <div class="about-content">
+          <h2>Kyle Anderson</h2>
+          <div class="about-title">Founder, Heartland Automations</div>
+          <p>I spent five years as a software engineer at Amazon, then another few managing engineering teams at a large energy company. The whole time, I watched the gap widen between companies that were automating and companies that weren't — and I kept thinking the same thing: the tools exist to fix this for businesses of any size, but nobody's packaging them in a way that's actually accessible to a 30-person manufacturer or a 20-person logistics company.</p>
+          <p>Heartland Automations is my answer to that. I'm not a consultant who delivers strategy decks and disappears. I build working automation — the kind that goes live in 2–3 weeks and immediately starts saving your team hours. The technology is mature enough to do remarkable things; the hard part is knowing which problems to solve first and how to build something your team will actually use.</p>
+          <p>I'm based in Chicago. I built this business specifically for Chicago-area companies because I think the manufacturing, logistics, and professional services firms here are exactly the ones who stand to gain the most from this technology — and who've been most underserved by the consulting firms that only talk to enterprises.</p>
+          <p>If you're spending hours on work that should be automated, let's fix that.</p>
         </div>
       </div>
     </div>
