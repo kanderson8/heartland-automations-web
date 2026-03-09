@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heartland Automations — AI Workflow Automation for Chicago Businesses</title>
+  <meta name="description" content="Heartland Automations builds AI-powered workflow systems for Chicago-area small and mid-sized businesses. Save 15–30 hours a week with working automation.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='8' cy='16' r='4' fill='%23C83803'/><circle cx='24' cy='8' r='4' fill='%23C83803'/><circle cx='24' cy='24' r='4' fill='%23C83803'/><line x1='11' y1='14' x2='21' y2='9' stroke='%23C83803' stroke-width='2'/><line x1='11' y1='18' x2='21' y2='23' stroke='%23C83803' stroke-width='2'/></svg>">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1A1A2E;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo svg {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4B5563;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: #0B1F51;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      border: 2px solid transparent;
+    }
+
+    .btn-sm {
+      padding: 8px 18px;
+      font-size: 0.85rem;
+    }
+
+    .btn-md {
+      padding: 12px 28px;
+    }
+
+    .btn-lg {
+      padding: 16px 36px;
+      font-size: 1rem;
+    }
+
+    .btn-orange {
+      background: #C83803;
+      color: #fff;
+      border-color: #C83803;
+    }
+
+    .btn-orange:hover {
+      background: #a82e02;
+      border-color: #a82e02;
+    }
+
+    .btn-orange-outline {
+      background: transparent;
+      color: #C83803;
+      border-color: #C83803;
+    }
+
+    .btn-orange-outline:hover {
+      background: #C83803;
+      color: #fff;
+    }
+
+    .btn-white-outline {
+      background: transparent;
+      color: #fff;
+      border-color: #fff;
+    }
+
+    .btn-white-outline:hover {
+      background: #fff;
+      color: #0B1F51;
+    }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #0B1F51;
+      margin: 5px 0;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid #E5E7EB;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-toggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .nav-toggle.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: #0B1F51;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 100px 24px 110px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      color: #fff;
+      font-size: 2.75rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.85rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-inner {
+        padding: 64px 20px 72px;
+      }
+    }
+
+    /* ─── SECTION SHARED ─── */
+    .section {
+      padding: 88px 24px;
+    }
+
+    .section-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0B1F51;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-header p {
+      color: #4B5563;
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ─── PAIN POINTS ─── */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .pain-card {
+      padding: 32px 28px;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .pain-card .icon {
+      margin-bottom: 20px;
+    }
+
+    .pain-card .icon svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .pain-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0B1F51;
+      margin-bottom: 10px;
+    }
+
+    .pain-card p {
+      color: #4B5563;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .pain-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .bg-gray {
+      background: #F9FAFB;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .step {
+      text-align: center;
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #C83803;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .step h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0B1F51;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      color: #4B5563;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .service-card {
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .service-card.featured {
+      background: #0B1F51;
+      color: #fff;
+      border-color: #0B1F51;
+    }
+
+    .service-card.featured h3,
+    .service-card.featured .price,
+    .service-card.featured .commitment {
+      color: #fff;
+    }
+
+    .service-card.featured p,
+    .service-card.featured li {
+      color: rgba(255,255,255,0.82);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #C83803;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0B1F51;
+      margin-bottom: 4px;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1A1A2E;
+      margin-bottom: 4px;
+    }
+
+    .commitment {
+      font-size: 0.82rem;
+      color: #4B5563;
+      margin-bottom: 20px;
+    }
+
+    .service-card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .service-card li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      color: #4B5563;
+      line-height: 1.5;
+    }
+
+    .service-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #C83803;
+      font-weight: 700;
+    }
+
+    .service-card.featured li::before {
+      color: #F59E0B;
+    }
+
+    .service-card .tagline {
+      font-style: italic;
+      font-size: 0.88rem;
+      color: #4B5563;
+      margin-bottom: 20px;
+    }
+
+    .service-card.featured .tagline {
+      color: rgba(255,255,255,0.72);
+    }
+
+    .service-card .btn {
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+    }
+
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      background: #0B1F51;
+      text-align: center;
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    .cta-banner h2 {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .cta-banner p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .cta-banner .btn {
+      position: relative;
+    }
+
+    .cta-banner .email {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.85rem;
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .cta-banner .email a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+
+    .cta-banner .email a:hover {
+      color: #fff;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: #071540;
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .footer-logo svg {
+      height: 24px;
+      width: auto;
+      margin-bottom: 16px;
+    }
+
+    .footer p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Heartland Automations home">
+        <svg viewBox="0 0 260 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Node icon -->
+          <circle cx="6" cy="16" r="4" fill="#C83803"/>
+          <circle cx="22" cy="6" r="4" fill="#C83803"/>
+          <circle cx="22" cy="26" r="4" fill="#C83803"/>
+          <line x1="9.5" y1="14" x2="18.5" y2="7.5" stroke="#C83803" stroke-width="2"/>
+          <line x1="9.5" y1="18" x2="18.5" y2="24.5" stroke="#C83803" stroke-width="2"/>
+          <!-- Heartland -->
+          <text x="34" y="22" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="#0B1F51">Heartland</text>
+          <!-- Automations -->
+          <text x="142" y="22" font-family="Inter, sans-serif" font-weight="600" font-size="18" fill="#C83803">Automations</text>
+        </svg>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://calendly.com/kyle-heartlandautomations/free-ai-operations-audit" class="btn btn-orange btn-sm" aria-label="Book a free audit">Book a Free Audit</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Save 15–30 hours a week by automating the work your team shouldn't be doing.</h1>
+      <p>Heartland Automations builds AI-powered workflow systems for Chicago-area businesses — so your team spends time on the work that actually matters.</p>
+      <div class="hero-buttons">
+        <a href="https://calendly.com/kyle-heartlandautomations/free-ai-operations-audit" class="btn btn-orange btn-md">Book a Free Audit</a>
+        <a href="#services" class="btn btn-white-outline btn-md">See Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Sound familiar?</h2>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="8" width="16" height="12" rx="2" stroke="#C83803" stroke-width="2.5" fill="none"/>
+              <rect x="28" y="8" width="16" height="12" rx="2" stroke="#C83803" stroke-width="2.5" fill="none"/>
+              <rect x="16" y="28" width="16" height="12" rx="2" stroke="#C83803" stroke-width="2.5" fill="none"/>
+              <line x1="20" y1="20" x2="24" y2="28" stroke="#C83803" stroke-width="2"/>
+              <line x1="28" y1="20" x2="24" y2="28" stroke="#C83803" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>"We're drowning in manual work"</h3>
+          <p>Your team copies data between systems, chases approvals, and generates reports by hand. Every week. It never gets better on its own.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="18" stroke="#C83803" stroke-width="2.5" fill="none"/>
+              <text x="24" y="29" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="#C83803">$</text>
+              <line x1="18" y1="4" x2="30" y2="4" stroke="#C83803" stroke-width="2.5"/>
+              <line x1="18" y1="44" x2="30" y2="44" stroke="#C83803" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <h3>"We can't afford enterprise software"</h3>
+          <p>Big consulting firms want six-figure retainers for strategy decks. You need working automation at a price that makes sense.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="6" width="32" height="24" rx="3" stroke="#C83803" stroke-width="2.5" fill="none"/>
+              <circle cx="24" cy="18" r="5" stroke="#C83803" stroke-width="2" fill="none"/>
+              <line x1="24" y1="18" x2="24" y2="14" stroke="#C83803" stroke-width="2"/>
+              <line x1="24" y1="18" x2="27" y2="20" stroke="#C83803" stroke-width="2"/>
+              <line x1="14" y1="36" x2="20" y2="30" stroke="#C83803" stroke-width="2.5"/>
+              <line x1="34" y1="36" x2="28" y2="30" stroke="#C83803" stroke-width="2.5"/>
+              <circle cx="14" cy="38" r="3" stroke="#C83803" stroke-width="2" fill="none"/>
+              <circle cx="34" cy="38" r="3" stroke="#C83803" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <h3>"We've tried AI tools but can't get them to stick"</h3>
+          <p>Everyone's experimenting. Almost nobody has a production-grade automation that actually runs their business better.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section bg-gray" id="how-it-works">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>How it works</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>We audit your operations</h3>
+          <p>A free 20-minute assessment identifies your top 2–3 automation opportunities and estimates the hours you'd save.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>We build working automation</h3>
+          <p>Not a strategy deck. Within 2–3 weeks, you have a live system handling the work.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>You get your time back</h3>
+          <p>Track exactly how many hours your team reclaims, with monthly ROI reporting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>What we build</h2>
+        <p>Three engagement levels. All focused on working automation, not presentations.</p>
+      </div>
+      <div class="services-grid">
+        <!-- Quick Win -->
+        <div class="service-card">
+          <h3>Quick Win</h3>
+          <div class="price">Starting at $1,500</div>
+          <div class="commitment">One-time engagement</div>
+          <ul>
+            <li>One high-impact workflow automated end-to-end</li>
+            <li>Delivered in 2–3 weeks</li>
+            <li>Full documentation and handoff</li>
+          </ul>
+          <p class="tagline">"The fastest way to see what AI can do for your business."</p>
+          <a href="https://calendly.com/kyle-heartlandautomations/free-ai-operations-audit" class="btn btn-orange-outline btn-sm">Get Started</a>
+        </div>
+
+        <!-- Operations Retainer -->
+        <div class="service-card featured">
+          <div class="badge">Most Popular</div>
+          <h3>Operations Retainer</h3>
+          <div class="price">$2,500–$4,000/month</div>
+          <div class="commitment">3-month minimum</div>
+          <ul>
+            <li>2–3 workflow automations built and optimized</li>
+            <li>Monthly ROI reporting (hours saved, error reduction)</li>
+            <li>Ongoing monitoring and refinement</li>
+            <li>Monthly 30-minute review call</li>
+          </ul>
+          <p class="tagline">"This is where the real operational leverage lives."</p>
+          <a href="https://calendly.com/kyle-heartlandautomations/free-ai-operations-audit" class="btn btn-orange btn-sm">Book a Call</a>
+        </div>
+
+        <!-- Transformation Partner -->
+        <div class="service-card">
+          <h3>Transformation Partner</h3>
+          <div class="price">$5,000–$8,000/month</div>
+          <div class="commitment">6-month commitment</div>
+          <ul>
+            <li>Company-wide AI integration across 5–10 workflows</li>
+            <li>Staff training and documentation</li>
+            <li>Dedicated support channel</li>
+            <li>On-site visits (2x/month)</li>
+            <li>Quarterly executive business review</li>
+          </ul>
+          <a href="https://calendly.com/kyle-heartlandautomations/free-ai-operations-audit" class="btn btn-orange-outline btn-sm">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner" id="contact">
+    <h2>Not sure where to start?</h2>
+    <p>Book a free 20-minute AI Operations Audit. We'll map your biggest automation opportunities — no pitch, no obligation.</p>
+    <a href="https://calendly.com/kyle-heartlandautomations/free-ai-operations-audit" class="btn btn-orange btn-lg">Book Your Free Audit</a>
+    <div class="email"><a href="mailto:kyle@heartlandautomations.com">kyle@heartlandautomations.com</a></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <svg viewBox="0 0 260 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="6" cy="16" r="4" fill="#C83803"/>
+        <circle cx="22" cy="6" r="4" fill="#C83803"/>
+        <circle cx="22" cy="26" r="4" fill="#C83803"/>
+        <line x1="9.5" y1="14" x2="18.5" y2="7.5" stroke="#C83803" stroke-width="2"/>
+        <line x1="9.5" y1="18" x2="18.5" y2="24.5" stroke="#C83803" stroke-width="2"/>
+        <text x="34" y="22" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="#FFFFFF">Heartland</text>
+        <text x="142" y="22" font-family="Inter, sans-serif" font-weight="600" font-size="18" fill="#C83803">Automations</text>
+      </svg>
+    </div>
+    <p>AI workflow automation for Chicago's small and mid-sized businesses.</p>
+    <p><a href="mailto:kyle@heartlandautomations.com">kyle@heartlandautomations.com</a></p>
+    <p>© 2026 Heartland Automations LLC. Chicago, IL.</p>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    // Close nav on link click
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html>
