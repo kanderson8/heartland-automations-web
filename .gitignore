@@ -1,0 +1,8 @@
+
+# Internal business files — never push to public repo
+prospects*.csv
+prospects*.md
+outreach-emails.md
+prospect-research-notes.md
+competitor-analysis.md
+*-contacts.csv
