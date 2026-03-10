@@ -6,3 +6,10 @@ outreach-emails.md
 prospect-research-notes.md
 competitor-analysis.md
 *-contacts.csv
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
